@@ -19,6 +19,7 @@ class FacebooksController < ApplicationController
     @facebook.user_id = current_user.id
     if @facebook.save
       redirect_to facebooks_path, notice: "トピックを作成しました！"
+      NoticeMailer.sendmail_facebook(@facebook).deliver
     else
       render 'new'
     end
