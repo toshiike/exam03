@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Exam031</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+  <header>
+  <ul>
+    <% if user_signed_in? %>
+      <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+      <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'ログイン', new_user_session_path  %></li>
+      <li><%= link_to 'サインアップ', new_user_registration_path %></li>
+    <% end %>
+      <li><%=link_to"投稿する",new_facebook_path %></li>
+      <li><%=link_to"投稿一覧",facebooks_path %></li>
+    </ul>
+  </header>
+
+  <%= yield %>
+
+  <footer>
+    <p>© 2017 Facebook, Inc.</p>
+  </footer>
+
+</body>
+</html>

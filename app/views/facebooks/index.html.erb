@@ -1,0 +1,20 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
+<p><%= notice %><%= alert %></p>
+
+<h1>トピック一覧</h1>
+
+<%= link_to "トピックを作成する", new_facebook_path, class: 'btn btn-default' %>
+
+<% @facebooks.each do |facebook| %>
+<div class="row">
+  <h4><strong>タイトル:<%= facebook.title %></strong></h4>
+  <p>本文:<%= facebook.content %></p>
+  <p>作成者:<%= facebook.user.name %></p>
+  <%= link_to "編集", edit_facebook_path(facebook.id), class: 'btn btn-sm btn-success' %>
+  <%= link_to "削除", facebook_path(facebook.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
+</div>
+<% end %>
+  </div>
+</div>
