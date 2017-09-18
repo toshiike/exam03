@@ -18,6 +18,9 @@
   <%= f.label :内容 %>
   <%= f.text_field :content, class: 'form-control'  %>
   <br>
+  <%= image_tag(@facebook.image_url) if image_tag(@facebook.image_url) %>
+  <%= f.file_field :image %>
+  <%= f.hidden_field :image_cache %>
   <%= f.submit '投稿', class: 'btn btn-primary btn-block' %>
 <% end %>
 

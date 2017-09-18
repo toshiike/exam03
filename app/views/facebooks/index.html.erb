@@ -11,7 +11,10 @@
 <div class="row">
   <h4><strong>タイトル:<%= facebook.title %></strong></h4>
   <p>本文:<%= facebook.content %></p>
-  <p>作成者:<%= facebook.user.name %></p>
+  <p>作成者:<%= facebook.user.name %><img src="<%= facebook.user.image_url %>"></p>
+</br>
+  <p>画像: <%= image_tag(facebook.image) %><p>
+</br>
   <%= link_to "編集", edit_facebook_path(facebook.id), class: 'btn btn-sm btn-success' %>
   <%= link_to "削除", facebook_path(facebook.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
 </div>

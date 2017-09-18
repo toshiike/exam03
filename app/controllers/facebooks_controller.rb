@@ -51,7 +51,7 @@ class FacebooksController < ApplicationController
 
   private
   def facebooks_params
-    params.require(:facebook).permit(:title, :content)
+    params.require(:facebook).permit(:title, :content, :image, :image_cache)
   end
 
   def set_facebook

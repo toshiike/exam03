@@ -6,15 +6,20 @@
 <%= form_for(@facebook) do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
+  <%= f.hidden_field :image %>
+  <%= f.hidden_field :image_cache %>
 
   <p>タイトル:<%= @facebook.title %></p>
   <p>本文:<%= @facebook.content %></p>
+  <p>画像:<%= image_tag(@facebook.image) %></p>
   <%= f.submit "登録",class: 'btn btn-primary btn-block'  %>
 <% end %>
 
 <%= form_for(@facebook, url: new_facebook_path, method: 'get') do |f| %>
   <%= f.hidden_field :title %>
   <%= f.hidden_field :content %>
+  <%= f.hidden_field :image %>
+  <%= f.hidden_field :image_cache %>
   <%= f.submit "もどる", name: 'back', class: 'btn btn-default btn-block' %>
 <% end %>
 

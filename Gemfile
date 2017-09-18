@@ -60,3 +60,12 @@ end
 gem 'rails_admin'
 
 gem 'cancan'
+
+gem 'dotenv-rails'
+
+gem 'omniauth'
+gem 'omniauth-twitter'
+
+#image uploader
+gem 'carrierwave'
+gem 'mini_magick'

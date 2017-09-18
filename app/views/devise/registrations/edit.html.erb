@@ -18,6 +18,8 @@
   </div>
 </br>
 
+<% if @user.provider.blank? %>
+
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
     <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
   <% end %>
@@ -37,10 +39,19 @@
   </div>
 </br>
 
+<div class="field">
+  <%= profile_img(@user) if profile_img(@user) %>
+  <%= f.file_field :avatar %>
+  <%= f.hidden_field :avatar_cache %>
+</div>
+</br>
+
   <div class="field">
     <%= f.label :current_password %> <i>(情報更新時、入力必要)</i><br />
     <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
   </div>
+
+<% end %>
 
   <div class="actions">
     <%= f.submit "更新", class: "btn btn-primary btn-block" %>
