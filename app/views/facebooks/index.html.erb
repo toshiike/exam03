@@ -9,7 +9,9 @@
 
 <% @facebooks.each do |facebook| %>
 <div class="row">
+  <%= link_to facebook_path(facebook) do %>
   <h4><strong>タイトル:<%= facebook.title %></strong></h4>
+  <% end %>
   <p>本文:<%= facebook.content %></p>
   <p>作成者:<%= facebook.user.name %><img src="<%= facebook.user.image_url %>"></p>
 </br>

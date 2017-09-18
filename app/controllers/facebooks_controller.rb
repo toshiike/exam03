@@ -1,9 +1,18 @@
 class FacebooksController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_facebook, only: [:edit, :update, :destroy]
+  before_action :set_facebook, only: [:show, :edit, :update, :destroy]
 
   def index
     @facebooks = Facebook.all
+    respond_to do |format|
+    format.html
+    format.js
+  end
+  end
+
+  def show
+    @comment = @facebook.comments.build
+    @comments = @facebook.comments
   end
 
   def new

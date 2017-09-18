@@ -2,11 +2,13 @@ class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
+            :recoverable, :rememberable, :trackable, :validatable,:confirmable,:omniauthable
 
-  mount_uploader :avatar, AvatarUploader #deviseの設定配下に追記
+  mount_uploader :avatar, AvatarUploader
 
-  has_many :facebooks
+  has_many :facebooks, dependent: :destroy
+  # CommentモデルのAssociationを設定
+  has_many :comments, dependent: :destroy
 
   def self.find_for_twitter_oauth(auth, signed_in_resource = nil)
     user = User.find_by(provider: auth.provider, uid: auth.uid)
