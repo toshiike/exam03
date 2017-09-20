@@ -15,12 +15,13 @@
       <li><%= link_to 'マイページ', edit_user_registration_path %></li>
       <li><%= link_to 'ユーザー一覧', users_path%></li>
       <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <li><%= link_to "メッセージ", conversations_path %></li>
+      <li><%=link_to"投稿する",new_facebook_path %></li>
+      <li><%=link_to"投稿一覧",facebooks_path %></li>
     <% else %>
       <li><%= link_to 'ログイン', new_user_session_path  %></li>
       <li><%= link_to 'サインアップ', new_user_registration_path %></li>
     <% end %>
-      <li><%=link_to"投稿する",new_facebook_path %></li>
-      <li><%=link_to"投稿一覧",facebooks_path %></li>
     </ul>
   </header>
 
