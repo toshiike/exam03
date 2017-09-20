@@ -6,6 +6,9 @@ Rails.application.routes.draw do
    omniauth_callbacks: "users/omniauth_callbacks"
  }
 
+ resources :users, only: [:index, :show]
+ resources :relationships, only: [:create, :destroy]
+
   resources :facebooks, only: [:index, :new, :create, :show, :edit, :update, :destroy]do
     collection do
       post :confirm

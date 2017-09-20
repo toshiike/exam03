@@ -1,0 +1,29 @@
+<div class="container">
+
+  <div class="container-child col-md-12 col-sm-12 col-xs-12" >
+  <br>
+  <h2>ユーザ情報</h2>
+  </div>
+  <h4>ユーザ名：<%= @user.name %></h4>
+    <br>
+  <h4>メール：<%= @user.email %></h4>
+    <br>
+  <h4>イメージ：<%= profile_img(@user) %></h4>
+    <br>
+
+  <div class="container-child col-md-12 col-sm-12 col-xs-12" >
+  <br>
+  <h2>フォロー一覧</h2>
+  </div>
+    <% @user.followed_users.each do |user| %>
+      <%= render 'show_form', user: user %>
+    <% end %>
+
+  <div class="container-child col-md-12 col-sm-12 col-xs-12" >
+  <br>
+  <h2>フォローワー一覧</h2>
+  </div>
+    <% @user.followers.each do |user| %>
+      <%= render 'show_form', user: user %>
+    <% end %>
+  </div>
