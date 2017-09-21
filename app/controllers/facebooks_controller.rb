@@ -13,6 +13,7 @@ class FacebooksController < ApplicationController
   def show
     @comment = @facebook.comments.build
     @comments = @facebook.comments
+     Notification.find(params[:notification_id]).update(read: true) if params[:notification_id]
   end
 
   def new
