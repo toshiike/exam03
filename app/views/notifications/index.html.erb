@@ -1,14 +1,19 @@
+<div class="container">
+  <div class="wrapper col-md-8 col-md-offset-2 col-sm-10">
+
 <h2>お知らせ</h2>
 <ul>
   <% @notifications.each do |notification| %>
-  <hr>
-    <li>
-      <span><%= notification.read %></span>
+  <div class="row">
+    <span><%= read_status(notification.read) %></span>
       <p>
         <%= notification.comment.user.try(:name) %>さんが
         あなたのブログ（<%= link_to "#{notification.comment.facebook.title}", facebook_path(notification.comment.facebook, notification_id: notification.id) %>）にコメントしました。
       </p>
       <p>日時：<%= posted_time(notification.created_at) %></p>
-    </li>
+  </div>
   <% end %>
 </ul>
+
+</div>
+</div>
