@@ -18,8 +18,10 @@
   </br>
   <p>画像: <%= image_tag(facebook.image) %><p>
 </br>
+<% if facebook.user == current_user %>
   <%= link_to "編集", edit_facebook_path(facebook.id), class: 'btn btn-sm btn-success' %>
   <%= link_to "削除", facebook_path(facebook.id), method: :delete, data: { confirm: '本当に削除していいですか？'}, class: 'btn btn-sm btn-danger' %>
+<% end %>
 </div>
 <% end %>
   </div>

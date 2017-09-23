@@ -37,21 +37,31 @@ class FacebooksController < ApplicationController
 
   def edit
   #  @facebook = Facebook.find(params[:id])
+   if @facebook.user != current_user
+     redirect_to facebooks_path, notice: "作成者しか編集できません"
+   end
   end
 
   def update
   #  @facebook = Facebook.find(params[:id])
+  if @facebook.user != current_user
+    redirect_to facebooks_path, notice: "作成者しか更新できません"
+  else
     if @facebook.update(facebooks_params)
       redirect_to facebooks_path, notice: "トピックを更新しました！"
     else
       render 'edit'
     end
   end
+  end
 
   def destroy
-  #  @facebook = Facebook.find(params[:id])
-    @facebook.destroy
-    redirect_to facebooks_path, notice: "トピックを削除しました！"
+    if @facebook.user != current_user
+      redirect_to facebooks_path, notice: "作成者しか削除できません"
+    else
+     @facebook.destroy
+     redirect_to facebooks_path, notice: "トピックを削除しました！"
+   end
   end
 
   def confirm
