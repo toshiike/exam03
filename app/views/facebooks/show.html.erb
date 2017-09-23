@@ -6,6 +6,8 @@
       <p class="left"><%= @facebook.title %></p>
       <p class="left"><strong>内容</strong></p>
       <p class="left"><%= @facebook.content %></p>
+      <p class="left"><strong>画像</strong></p>
+      <p class="left"><%= image_tag(@facebook.image) %></p>
       <p class="right">
         <strong>作成時間:</strong>
         <%= @facebook.created_at.strftime("%y/%m/%d %p %l:%M") %>
