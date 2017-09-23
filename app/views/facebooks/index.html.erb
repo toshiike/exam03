@@ -12,9 +12,10 @@
   <%= link_to facebook_path(facebook) do %>
   <h4><strong>タイトル:<%= facebook.title %></strong></h4>
   <% end %>
-  <p>本文:<%= facebook.content %></p>
+  <p>作成日時:<%= facebook.created_at.strftime("%y年%m月%d日 %p %l:%M") %></p>
   <p>作成者:<%= facebook.user.name %><img src="<%= facebook.user.image_url %>"></p>
-</br>
+  <p>本文:<%= facebook.content %></p>
+  </br>
   <p>画像: <%= image_tag(facebook.image) %><p>
 </br>
   <%= link_to "編集", edit_facebook_path(facebook.id), class: 'btn btn-sm btn-success' %>
